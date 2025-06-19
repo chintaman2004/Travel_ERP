@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:travel_erp/features/auth/auth_controller.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -15,16 +14,24 @@ class _LoginScreenState extends State<LoginScreen> {
   final passwordController = TextEditingController();
   bool isLoading = false;
 
+  Future<String?> loginUser(String email, String password) async {
+    await Future.delayed(const Duration(seconds: 1)); // simulate API delay
+    if (email == 'admin' && password == 'admin') {
+      return null; // success
+    }
+    return 'Invalid credentials';
+  }
+
   void handleLogin() async {
     setState(() => isLoading = true);
     final error = await loginUser(
-      emailController.text,
-      passwordController.text,
+      emailController.text.trim(),
+      passwordController.text.trim(),
     );
     setState(() => isLoading = false);
 
     if (error == null) {
-      Navigator.pushNamed(context, '/dashboard'); // this should navigate!
+      Navigator.pushNamed(context, '/dashboard');
     } else {
       ScaffoldMessenger.of(
         context,
@@ -39,6 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
               controller: emailController,
@@ -58,7 +66,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   : const Text('Login'),
             ),
             TextButton(
-              onPressed: () => Navigator.pushNamed(context, '/signup'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/signup');
+              },
               child: const Text("Don't have an account? Sign Up"),
             ),
           ],
