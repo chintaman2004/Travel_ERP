@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Travel ERP',
+      title: 'Travel Management ERP',
       theme: ThemeData(primarySwatch: Colors.blue),
       initialRoute: '/login',
       routes: {
-        '/login': (context) => const LoginScreen(),
+        '/Login': (context) => const LoginScreen(),
         '/dashboard': (context) => const DashboardScreen(),
         '/signup': (context) => const SignupScreen(),
       },
