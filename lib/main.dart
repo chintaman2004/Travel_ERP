@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Travel Management ERP',
+      title: 'Travel Management System',
       theme: ThemeData(primarySwatch: Colors.blue),
       initialRoute: '/login',
       routes: {
