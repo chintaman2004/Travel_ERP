@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
     setState(() => isLoading = false);
 
     if (error == null) {
-      Navigator.pushNamed(context, '/dashboard');
+      Navigator.pushNamed(context, '/Dashboard');
     } else {
       ScaffoldMessenger.of(
         context,

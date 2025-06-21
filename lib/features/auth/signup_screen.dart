@@ -25,7 +25,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
     if (error == null) {
       if (!mounted) return;
-      Navigator.pushReplacementNamed(context, '/login');
+      Navigator.pushReplacementNamed(context, '/Login');
     } else {
       if (!mounted) return;
       ScaffoldMessenger.of(
