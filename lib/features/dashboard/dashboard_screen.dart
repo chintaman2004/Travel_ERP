@@ -8,7 +8,7 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ERP Dashboard'),
+        title: const Text('TMS Dashboard'),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
@@ -17,7 +17,7 @@ class DashboardScreen extends StatelessWidget {
               if (context.mounted) {
                 Navigator.pushNamedAndRemoveUntil(
                   context,
-                  '/login',
+                  '/Login',
                   (route) => false,
                 );
               }
